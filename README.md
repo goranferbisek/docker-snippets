@@ -28,12 +28,9 @@ docker images
 
 ## List docker containers
 ```bash
-#list running images
-docker images ls
+#list running containers
+docker ps
 
 #list all images
-docker images ls -a
-
-#shorthand command
 docker ps -a
 ```
