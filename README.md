@@ -16,6 +16,11 @@ docker run -d --name myDB -p 3308:3306 -e MYSQL_ROOT_PASSWORD=password  mysql:5.
 # -e for environment options (PASSWORD is mandatory with mysql)
 ```
 
+## Display information about hte container
+```bash
+docker inspect container-name
+```
+
 ## List docker images
 ```bash
 docker images
