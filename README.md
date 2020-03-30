@@ -92,3 +92,9 @@ If you delete the container the data is lost. You can map the data to a director
 docker run -v /opt/datadir:/var/lib/mysql mysql
 # data is now stored on the host inside /opt/datadir
 ```
+
+## Log access
+When using detached mode you can acces log with
+```bash
+docker logs container-name
+```
