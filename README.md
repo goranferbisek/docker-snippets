@@ -16,7 +16,7 @@ docker run -d --name myDB -p 3308:3306 -e MYSQL_ROOT_PASSWORD=password  mysql:5.
 # -e for environment options (PASSWORD is mandatory with mysql)
 ```
 
-## Display information about hte container
+## Display information about the container
 ```bash
 docker inspect container-name
 ```
@@ -26,6 +26,13 @@ docker inspect container-name
 docker images
 ```
 
+## Removing docker images
+```bash
+docker rmi nginx
+# use image name
+# delete all dependent containers beforehand
+```
+
 ## List docker containers
 ```bash
 #list running containers
@@ -33,4 +40,11 @@ docker ps
 
 #list all images
 docker ps -a
+```
+
+## Remove a container
+```bash
+# container must be stopped before removing
+docker stop container-name
+docker rm container-name
 ```
