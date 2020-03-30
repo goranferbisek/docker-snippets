@@ -15,6 +15,30 @@ docker run -d --name myDB -p 3308:3306 -e MYSQL_ROOT_PASSWORD=password  mysql:5.
 # -p HOST:CONTAINER option to publish a container port to the host
 # -e for environment options (PASSWORD is mandatory with mysql)
 ```
+A docker container is meant to run a specific process. If the process is stopped or has crashed, the container will exit.
+
+Example:
+```bash
+docker run ubuntu
+# this container stops immediately
+
+docker run ubuntu sleep 10
+# this runs for 10 seconds
+```
+
+### Run a command on a running container
+```bash
+docker exec container-name command params
+
+# example
+docker run -d --name ubuntu-box ubuntu sleep 100
+docker exec ubuntu-box cat /etc/hosts
+```
+### Attach to a running container
+```bash
+docker attach ubuntu-box
+# use container name or id
+```
 
 ## Display information about the container
 ```bash
