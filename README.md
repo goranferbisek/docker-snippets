@@ -3,6 +3,8 @@
 ```bash
 # Example: pull mysql with specific version (optional)
 docker pull mysql:5.7
+# tag 5.7 used
+# default tag is latest
 ```
 
 ## Create a docker container from an image
