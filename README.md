@@ -41,6 +41,13 @@ docker exec ubuntu-box cat /etc/hosts
 docker attach ubuntu-box
 # use container name or id
 ```
+### Run in interactive mode
+```bash
+docker run -it ubuntu
+
+# i - interactive mode
+# t - attach to containers terminal
+```
 
 ## Display information about the container
 ```bash
@@ -73,4 +80,15 @@ docker ps -a
 # container must be stopped before removing
 docker stop container-name
 docker rm container-name
+```
+# Advanced topics
+## Volume mapping
+How to persist data in a docker container on a MySQL container example?
+
+MySQL keeps data in /var/lib/mysql inside the container.
+If you delete the container the data is lost. You can map the data to a directory location on the host machine.
+
+```bash
+docker run -v /opt/datadir:/var/lib/mysql mysql
+# data is now stored on the host inside /opt/datadir
 ```
