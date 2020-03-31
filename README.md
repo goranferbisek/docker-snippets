@@ -109,3 +109,18 @@ Example: Flask app (python framework)
 4. install Python dependecies using pip
 5. copy source code to a location (example: /opt)
 6. run the web server (flask application)
+
+We put this steps into a **Dockerfile**. See an example here: [Example Docker file](examples/flask-app/Dockerfile)
+
+To build an image from a Dockerfile us:
+```bash
+docker build -t gferbis/example-flask-app .
+# -t tag option to give your image a name
+# . Docker file is in the current directory
+```
+
+You can publish your image to Dockerhub with:
+```bash
+docker push gferbis/example-flask-app
+# -t tag name option to give your image a name
+```
