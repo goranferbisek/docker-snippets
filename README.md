@@ -15,7 +15,7 @@ docker run -d --name myDB -p 3308:3306 -e MYSQL_ROOT_PASSWORD=password  mysql:5.
 # -d option for detached mode
 # --name option to name your container
 # -p HOST:CONTAINER option to publish a container port to the host
-# -e for environment options (PASSWORD is mandatory with mysql)
+# -e for environment variables (PASSWORD is mandatory with mysql)
 ```
 A docker container is meant to run a specific process. If the process is stopped or has crashed, the container will exit.
 
@@ -98,3 +98,14 @@ When using detached mode you can acces log with
 ```bash
 docker logs container-name
 ```
+
+# Docker images
+To make a custom image you have to write the steps like you would do if you want to deploy an aplication manualy.
+
+Example: Flask app (python framework)
+1. get an operating system (ubuntu)
+2. update apt repository
+3. install dependencies using apt
+4. install Python dependecies using pip
+5. copy source code to a location (example: /opt)
+6. run the web server (flask application)
