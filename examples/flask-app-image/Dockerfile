@@ -1,7 +1,7 @@
 FROM ubuntu
 
 RUN apt-get update
-RUN apt-get install python
+RUN apt-get install python python-pip -y
 
 RUN pip install flask
 RUN pip install flask-mysql
