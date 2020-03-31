@@ -117,6 +117,9 @@ To build an image from a Dockerfile us:
 docker build -t gferbis/example-flask-app .
 # -t tag option to give your image a name
 # . Docker file is in the current directory
+
+docker history gferbis/example-flask-app
+# see the cached build steps
 ```
 
 You can publish your image to Dockerhub with:
