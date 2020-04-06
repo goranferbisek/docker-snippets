@@ -25,7 +25,9 @@ docker run ubuntu
 # this container stops immediately
 
 docker run ubuntu sleep 10
-# this runs for 10 seconds
+# runs for 10 seconds
+# this overrides the default docker CMD command of the image
+# example CMD ["bash"]
 ```
 
 ### Run a command on a running container
