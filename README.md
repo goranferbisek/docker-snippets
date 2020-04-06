@@ -129,3 +129,17 @@ You can publish your image to Dockerhub with:
 docker push gferbis/example-flask-app
 # -t tag name option to give your image a name
 ```
+## CMD vs ENTRYPOINT command
+**CMD** ['executable', 'param1'] - command gets **replaced** with command line arguments from docker run
+**ENTRYPOINT** ['executable', 'param1'] - parameters get **appended** from command line arguments from docker run
+
+Use both to get a default parameter if not specified
+```bash
+FROM Ubuntu
+ENTRYPOINT ["sleep"]
+CMD ["5"]
+
+#examples
+docker run ubuntu-sleeper 10 # sleeps for 10 seconds
+docker run ubuntu-sleeper 5 # sleeps for 5 seconds
+```
