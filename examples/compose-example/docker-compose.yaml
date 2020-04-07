@@ -1,0 +1,34 @@
+version: 3
+
+services:
+  redis:
+    image: redis
+    networks:
+      - back-end
+  db:
+    image: postregs:9.4
+    networks:
+      - back-end
+  vote:
+    build: ./vote # instead of a built image
+    ports:
+      - 5000:80
+    networks:
+        - front-end
+        - back-end
+  result:
+    build: ./result
+    ports:
+      - 5001:80
+    networks:
+        - front-end
+        - back-end
+  worker:
+    build: ./worker
+    networks:
+      - back-end
+
+# if using more than one network
+networks:
+  font-end:
+  back-end:

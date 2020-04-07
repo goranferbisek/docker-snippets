@@ -178,5 +178,16 @@ CMD ["5"]
 
 #examples
 docker run ubuntu-sleeper 10 # sleeps for 10 seconds
-docker run ubuntu-sleeper 5 # sleeps for 5 seconds
+docker run ubuntu-sleeper # sleeps for 5 seconds by default
+```
+# Docker compose
+To create a complex application usig multiple services is better to use a configuration file (in a YAML format) called docker-compose.yaml
+See an example [docker-compose.yaml](examples/compose-example/docker-compose.yaml)
+
+To bring up the entire application stack run
+```bash
+docker-compose up # use -d for detached
+
+# stop the application
+docker-compose down
 ```
