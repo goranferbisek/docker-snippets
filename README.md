@@ -101,6 +101,25 @@ When using detached mode you can acces log with
 docker logs container-name
 ```
 
+## Docker networks
+Default networks are:
+- bridge (access container the trough port maping)
+- none (cannot access the container)
+- host (access trough containers internal port)
+
+### Custom newtorks
+Create a user defined network with:
+```bash
+docker network create --driver bridge --subnet 182.18.0.0/16 custom-network
+```
+List all networks with:
+```bash
+docker network ls
+```
+Remove a network with:
+```bash
+docker network rm [id or name]
+```
 # Docker images
 To make a custom image you have to write the steps like you would do if you want to deploy an aplication manualy.
 
