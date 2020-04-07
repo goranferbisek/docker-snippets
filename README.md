@@ -93,6 +93,24 @@ If you delete the container the data is lost. You can map the data to a director
 ```bash
 docker run -v /opt/datadir:/var/lib/mysql mysql
 # data is now stored on the host inside /opt/datadir
+# this is a bind mount (existing folder)
+```
+
+Create a volume (inside /var/lib/docker/volumes) with:
+```bash
+docker volume create data_volume
+# creates a folder /var/lib/docker/volumes/data_volume on the host
+
+# this is volume mounting
+docker run -v data_volume:/var/lib/mysql mysql
+
+
+# two ways of mounting
+# old way
+docker run -v /data/mysql:/var/lib/mysql mysql
+# new way
+docker run --mount type=bind,source=/data/mysql,target=/var/lib/mysql mysql
+
 ```
 
 ## Log access
