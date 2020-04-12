@@ -1,0 +1,41 @@
+# Drupal with MySQL
+#
+# Access via "http://localhost:8080"
+#
+# During initial Drupal setup,
+# Database type: MySQL
+# Database name: drupal
+# Database username: drupal
+# Database password: drupal
+# under advanced, set hostname "database" (instead of localhost or ip)
+
+version: "3.3"
+
+services:
+  database:
+    image: mysql:5.7
+    ports:
+      - 13306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: drupal
+      MYSQL_USER: drupal
+      MYSQL_PASSWORD: drupal
+
+  drupal:
+    depends_on:
+      - database
+    image: drupal:latest
+    ports:
+      - 8080:80
+    volumes:
+      - /var/www/html/modules
+      - /var/www/html/profiles
+      - /var/www/html/themes
+      # this takes advantage of the feature in Docker that a new anonymous
+      # volume (which is what we're creating here) will be initialized with the
+      # existing content of the image at the same location
+      - drupal_sites:/var/www/html/sites
+
+volumes:
+  drupal_sites:
